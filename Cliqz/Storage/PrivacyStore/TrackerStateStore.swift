@@ -130,12 +130,12 @@ public class TrackerStateStore: NSObject {
     public class func getTrackerState(appId: Int) -> TrackerState? {
         return read(appId: appId)
     }
-    
+
+    static var realm = { try? Realm() }()
+
     @discardableResult private class func read(appId: Int) -> TrackerState? {
-        if let realm = try? Realm() {
-            if let trackerState = realm.object(ofType: TrackerState.self, forPrimaryKey: appId) {
-                return trackerState
-            }
+        if let trackerState = realm?.object(ofType: TrackerState.self, forPrimaryKey: appId) {
+            return trackerState
         }
         return nil
     }

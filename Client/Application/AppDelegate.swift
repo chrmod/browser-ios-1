@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
     //Cliqz: RealmDB path
     var realmDir: URL {
-        return URL(fileURLWithPath: (try! profile!.files.getAndEnsureDirectory("RealmDB"))).appendingPathComponent("default.realm")
+        return URL(fileURLWithPath: (try! profile!.files.getAndEnsureDirectory("RealmDBv2"))).appendingPathComponent("default.realm")
     }
     
     //Cliqz: local notifications manager
